@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TravelTrack.Views"
+             x:Class="TravelTrack.Views.TripDetailsPage"
+             BackgroundColor="#1A1A2E"
+             Title="Trip Details">
+
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            
+            <Label Text="Trip Name"
+                   FontSize="20"
+                   TextColor="#FF9F1C" />
+            
+            <Label x:Name="NameLabel"
+                   FontSize="18"
+                   TextColor="#FFFFFF" />
+           
+            <Label Text="Destination"
+                   FontSize="20"
+                   TextColor="#FF9F1C" />
+            <Label x:Name="DestinationLabel"
+                   FontSize="18"
+                   TextColor="#FFFFFF" />
+
+            
+            <Label Text="Start Date"
+                   FontSize="20"
+                   TextColor="#FF9F1C" />
+            <Label x:Name="StartDateLabel"
+                   FontSize="18"
+                   TextColor="#FFFFFF" />
+
+            
+            <Label Text="End Date"
+                   FontSize="20"
+                   TextColor="#FF9F1C" />
+            <Label x:Name="EndDateLabel"
+                   FontSize="18"
+                   TextColor="#FFFFFF" />
+
+
+            <!-- Display Budget -->
+            <Label Text="Budget" 
+                   
+                   FontSize="20"
+                   TextColor="#FF9F1C"/>
+            <Label x:Name="BudgetLabel" 
+                   FontSize="18"
+                    TextColor="#FFFFFF" />
+
+            <Button Text="Edit"
+                    Clicked="OnEditClicked"
+                    BackgroundColor="#16213E" 
+                TextColor="#FFFFFF"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    Padding="10" />
+                <Button Text="Delete"
+                    Clicked="OnDeleteClicked"
+                    BackgroundColor="#D72638" 
+                    TextColor="#FFFFFF"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    Padding="10" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

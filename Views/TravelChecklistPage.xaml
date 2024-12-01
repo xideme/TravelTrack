@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TravelTrack.Views"
+             x:Class="TravelTrack.Views.TravelChecklistPage"
+             Title="Travel Checklist"
+             x:Name="TravelChecklist"
+             BackgroundColor="#E8F5E9">
+
+    <VerticalStackLayout Padding="15" Spacing="20">
+        <!-- Label for Instructions -->
+        <Label Text="Select a Trip and Manage Checklist"
+               FontSize="22"
+               FontAttributes="Bold"
+               TextColor="#388E3C"
+               HorizontalOptions="Center" />
+
+        <!-- CollectionView to display trips -->
+        <ScrollView>
+        <Border StrokeThickness="2" Stroke="#388E3C" >
+                <CollectionView x:Name="TripListView" 
+                            SelectionMode="Single" 
+                            SelectionChanged="OnTripSelected"
+                            BackgroundColor="#FFFFFF">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border StrokeThickness="1" Stroke="#A5D6A7" Margin="5">
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Name}" 
+                                       FontSize="18" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2E7D32" />
+                                    <Label Text="{Binding Destination}" 
+                                       FontSize="14" 
+                                       TextColor="#4CAF50" />
+                                </StackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>
+      </ScrollView>
+
+        <!-- Button to add checklist items -->
+        <Button Text="Add Checklist Item"
+                Clicked="OnAddChecklistItemClicked"
+                IsEnabled="False"
+                x:Name="AddChecklistButton"
+                BackgroundColor="#388E3C"
+                TextColor="#FFFFFF"
+                FontAttributes="Bold"
+                CornerRadius="20" />
+
+        <!-- CollectionView to display checklist items -->
+        <Border StrokeThickness="2" Stroke="#388E3C" >
+            <CollectionView x:Name="ChecklistView" BackgroundColor="#FFFFFF">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border StrokeThickness="1" Stroke="#A5D6A7" Margin="5">
+                            <StackLayout Orientation="Horizontal" Padding="10" Spacing="15">
+                                <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged"  Color="#388E3C" />
+                                <Label Text="{Binding Name}" 
+                                       FontSize="16" 
+                                       TextColor="#2E7D32" />
+                                <Button Text="X"
+                                    BackgroundColor="#D72638"
+                                    TextColor="#FFFFFF"
+                                    FontAttributes="Bold"
+                                    CornerRadius="10"
+                                    HorizontalOptions="EndAndExpand"
+                                    Command="{Binding Path=BindingContext.RemoveChecklistItem, Source={x:Reference TravelChecklist}}"
+                                    CommandParameter="{Binding .}" />
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

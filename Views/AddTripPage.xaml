@@ -1,0 +1,55 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelTrack.Views.AddTripPage"
+             BackgroundColor="#1A1A2E"
+             Title="Add Trip">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Entry x:Name="NameEntry" 
+                   Placeholder="Trip Name" 
+                   BackgroundColor="#16213E" 
+                   TextColor="#FFFFFF" 
+                   PlaceholderColor="#B0B0B0" 
+                   FontAttributes="Bold" />
+
+            <Entry x:Name="DestinationEntry" 
+                   Placeholder="Destination" 
+                   BackgroundColor="#16213E" 
+                   TextColor="#FFFFFF" 
+                   PlaceholderColor="#B0B0B0" 
+                   FontAttributes="Bold" 
+                  />
+
+            <Entry x:Name="BudgetEntry" 
+                   Placeholder="Enter Budget" 
+                   Keyboard="Numeric" 
+                   BackgroundColor="#16213E" 
+                    TextColor="#FFFFFF" 
+                    PlaceholderColor="#B0B0B0" 
+                    FontAttributes="Bold" />    
+
+            <DatePicker x:Name="StartDatePicker" 
+                        BackgroundColor="#16213E" 
+                        TextColor="#FFFFFF" 
+                        FontAttributes="Bold" 
+                         />
+
+            <DatePicker x:Name="EndDatePicker" 
+                        BackgroundColor="#16213E" 
+                        TextColor="#FFFFFF" 
+                        FontAttributes="Bold" 
+                         />
+            
+            
+
+            <Button Text="Save Trip" 
+                    Clicked="OnSaveTripClicked" 
+                    BackgroundColor="#FF9F1C" 
+                    TextColor="#FFFFFF" 
+                    FontAttributes="Bold" 
+                    CornerRadius="10" 
+                    Padding="10" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
