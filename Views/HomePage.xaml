@@ -13,12 +13,30 @@
                HorizontalOptions="Center" 
                HeightRequest="150" 
                Aspect="AspectFit" />
-        
-        <Button Text="Add Trip" Clicked="OnAddTripClicked" BackgroundColor="#F95738"
-            TextColor="White" 
-                FontAttributes="Bold" 
-                CornerRadius="10"
-                />
+
+            <Label Text="Trip.ee Deal of the Day"
+               FontSize="18"
+               FontAttributes="Bold"
+               TextColor="#388E3C"
+               HorizontalOptions="Center" />
+
+            <Grid>
+                <ListView x:Name="RssListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                            <Label Text="{Binding Title}" TextColor="White" FontAttributes="Bold" >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.OpenLinkCommand, Source={x:Reference RssListView}}"
+                                               CommandParameter="{Binding Link}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Button Text="Add Trip" Clicked="OnAddTripClicked" BackgroundColor="#F95738" TextColor="White" FontAttributes="Bold" CornerRadius="10" Margin="0,5,0,0" />
 
             <Button Text="Go to Trip Checklist" Clicked="OnTravelChecklistClicked" BackgroundColor="LightPink"
     TextColor="White" 

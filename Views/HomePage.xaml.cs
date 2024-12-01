@@ -1,3 +1,6 @@
+
+using System.Windows.Input;
+using System.Xml.Linq;
 using TravelTrack.Models;
 using TravelTrack.Views;
 
@@ -8,13 +11,46 @@ namespace TravelTrack.Views
         public HomePage()
         {
             InitializeComponent();
+            BindingContext = this;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             await LoadTrips();
+            LoadRssFeed();
         }
+
+
+        private async Task LoadRssFeed()
+        {
+            var rssUrl = "https://trip.ee/odavad-lennupiletid/rss";
+            using (var client = new HttpClient())
+            {
+                var xmlContent = await client.GetStringAsync(rssUrl);
+                var xmlDoc = XDocument.Parse(xmlContent);
+
+                var firstItem = xmlDoc.Descendants("item")
+                                      .Select(x => new
+                                      {
+                                          Title = x.Element("title")?.Value,
+                                          Link = x.Element("link")?.Value
+                                      })
+                                      .FirstOrDefault();
+
+                RssListView.ItemsSource = new List<object> { firstItem };
+            }
+        }
+
+        
+
+        public ICommand OpenLinkCommand { get; } = new Command<string>(async (url) =>
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                await Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
+            }
+        });
 
         public async Task LoadTrips()
         {
