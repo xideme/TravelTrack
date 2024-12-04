@@ -19,5 +19,5 @@ TravelTrack is a cross-platform travel management app built with .NET MAUI. It h
 - Use the app to keep track of travel plans and upcoming trips.
 
 ## Screenshot
-![App Home Page](https://raw.githubusercontent.com/xideme/TravelTrack/refs/heads/master/AppHomePage.png)
+![App Home Page](https://raw.githubusercontent.com/xideme/TravelTrack/refs/heads/master/TravelTrackHome.jpg)
 
