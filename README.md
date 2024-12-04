@@ -7,6 +7,7 @@ TravelTrack is a cross-platform travel management app built with .NET MAUI. It h
 - Create and manage checklists attached to specific trips.
 - Track budgets for each trip.
 - Countdown to the next trip on the homepage.
+- Trip.ee RSS parsing for daily trip best offer.
 
 ## Technologies
 - .NET MAUI
@@ -17,6 +18,7 @@ TravelTrack is a cross-platform travel management app built with .NET MAUI. It h
 - Add trips with details like name, destination, and budget.
 - Attach checklists to each trip.
 - Use the app to keep track of travel plans and upcoming trips.
+- Click on Trip.ee offer to open link in web browser.
 
 ## Screenshot
 ![App Home Page](https://raw.githubusercontent.com/xideme/TravelTrack/refs/heads/master/TravelTrackHome.jpg)
